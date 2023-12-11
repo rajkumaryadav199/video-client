@@ -198,7 +198,10 @@ const Room = (props) => {
   function writeUserName(userName, index) {
     if (userVideoAudio.hasOwnProperty(userName)) {
       if (!userVideoAudio[userName].video) {
-        return <UserName key={userName}>{userName}</UserName>;
+        return <UserNameCenter key={userName}>{userName}</UserNameCenter>;
+      }
+      else{
+        return <UserName key={userName}>{userName}</UserName>
       }
     }
   }
@@ -349,8 +352,8 @@ const Room = (props) => {
           <VideoBox
             className={`width-peer${peers.length > 8 ? '' : peers.length}`}
           >
-            {userVideoAudio['localUser'].video ? null : (
-              <UserName>{currentUser}</UserName>
+            {userVideoAudio['localUser'].video ? <UserName>You</UserName> : (
+              <UserNameCenter>You</UserNameCenter>
             )}
             <FaIcon className='fas fa-expand' />
             <MyVideo
@@ -430,10 +433,17 @@ const VideoBox = styled.div`
   }
 `;
 
+const UserNameCenter = styled.div`
+  position: absolute;
+  font-size: calc(20px + 5vmin);
+  z-index: 1;
+`;
 const UserName = styled.div`
   position: absolute;
   font-size: calc(20px + 5vmin);
   z-index: 1;
+  bottom:2px;
+  left:10px;
 `;
 
 const FaIcon = styled.i`

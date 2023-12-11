@@ -57,12 +57,12 @@ const BottomBar = ({
         </CameraButton>
       </Left>
       <Center>
-        <ChatButton onClick={clickChat}>
+        {/* <ChatButton onClick={clickChat}>
           <div>
             <FaIcon className='fas fa-comments'></FaIcon>
           </div>
           Chat
-        </ChatButton>
+        </ChatButton> */}
         <ScreenButton onClick={clickScreenSharing}>
           <div>
             <FaIcon
